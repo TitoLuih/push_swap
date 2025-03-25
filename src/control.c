@@ -6,34 +6,34 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:11:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/03/24 15:40:44 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:50:56 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_stacker(char **argv)
+int	ft_stacker(int argc, char **argv, t_push_swap *list)
 {
 	int	i;
+	char	**splited;
 
 	i = 0;
-	while (argv[i])
-	{
-		 
+	if (argc == 2)
+		splited = ft_split(argv, " ");
+	else
+	{ 
+		while (argv[i])
+		{
+			list->a->content = ft_atol(&argv[i]);
+			list->a->next;
+			i++;
+		}
 	}
+	//!!error catcher 
+	return(EXIT_SUCCESS);
 }
 
-int	ft_check_valid(int argc, char **argv)
+int	ft_check_valid(int argc, char **argv, t_stack *list)
 {
-	if (argc == 1)
-		return(EXIT_FAILURE);
-	else if (argc == 2)
-	{
-		//check si esta bien o no el input, si esta bien split
-	}
-	else
-	{
-		//que coja todos los numeros, si son char pasarlos a int y al stack A
-		ft_stacker();
-	}
+	ft_stacker(argc, argv, list);
 }

@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:29:15 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/03/24 15:10:31 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/03/25 16:37:57 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct s_push_swap
 	t_stack	*b;
 }	t_push_swap;
 
-int	ft_error();
+int		ft_error(char *str);
+int		ft_check_valid(int argc, char **argv, t_stack *list);
+long	ft_atol(char *num);
 
 #endif
