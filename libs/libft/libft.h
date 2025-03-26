@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 19:41:57 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/02/06 13:06:22 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/03/26 16:31:45 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,7 @@ size_t	ft_strlen_gnl(const char *str);
 char	*ft_strchr_gnl(const char *s, int c);
 char	*ft_strjoin_gnl(char *s1, char *s2);
 void	*ft_calloc_gnl(size_t count, size_t size);
+int		ft_error(char *str);
+
 
 #endif 

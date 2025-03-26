@@ -6,34 +6,41 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:11:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/03/25 17:50:56 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/03/26 18:57:58 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_stacker(int argc, char **argv, t_push_swap *list)
+int	ft_stacker(char **argv, t_push_swap *list, int argc)
 {
 	int	i;
-	char	**splited;
 
-	i = 0;
 	if (argc == 2)
-		splited = ft_split(argv, " ");
+		i = 0;
 	else
-	{ 
-		while (argv[i])
-		{
-			list->a->content = ft_atol(&argv[i]);
-			list->a->next;
-			i++;
-		}
+		i = 1;
+	while (argv[i]) 
+	{
+		//TODO meter un control de si es numero o no
+		list->a->content = ft_atol(&argv[i]);
+		list->a->next;
+		i++;
 	}
-	//!!error catcher 
+	if (!list)
+		return (EXIT_FAILURE);
 	return(EXIT_SUCCESS);
 }
 
 int	ft_check_valid(int argc, char **argv, t_stack *list)
 {
-	ft_stacker(argc, argv, list);
+	char **splited;
+	
+	if (argc == 2)
+	{
+		splited = ft_split(argv[1], " ");
+		ft_stacker(splited, list, argc);
+	}
+	else
+		ft_stacker(*argv, list, argc);
 }
