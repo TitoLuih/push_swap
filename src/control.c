@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:11:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/03/26 18:57:58 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/03/27 15:10:42 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ int	ft_stacker(char **argv, t_push_swap *list, int argc)
 	while (argv[i]) 
 	{
 		//TODO meter un control de si es numero o no
+		//esta en ft_atol, deberia comprobarlo dos veces?
 		list->a->content = ft_atol(&argv[i]);
-		list->a->next;
+		list->a = list->a->next;
 		i++;
 	}
 	if (!list)
