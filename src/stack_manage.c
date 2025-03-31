@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   stack_manage.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 15:29:15 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/03/31 12:02:08 by lruiz-to         ###   ########.fr       */
+/*   Created: 2025/03/31 15:32:50 by lruiz-to          #+#    #+#             */
+/*   Updated: 2025/03/31 15:33:44 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../libs/libft/libft.h"
+#include "push_swap.h"
 
-typedef struct s_stack
+t_stack	*stack_new(long long int content)
 {
-	long long int	content;
-	struct s_stack	*next;
-}	t_stack;
+	t_stack	*x;
 
-typedef struct s_push_swap
+	x = (t_stack *) malloc (sizeof(t_stack));
+	if (!x)
+		return (NULL);
+	x->content = content;
+	x->next = NULL;
+	return (x);
+}
+
+int	stack_size(t_stack *lst)
 {
-	t_stack	*a;
-	t_stack	*b;
-}	t_push_swap;
+	int	i;
 
-int		ft_error(char *str);
-int		ft_check_valid(int argc, char **argv, t_stack *list);
-long	ft_atol(char *num);
-
-#endif
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
+}

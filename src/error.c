@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 15:29:15 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/03/31 12:02:08 by lruiz-to         ###   ########.fr       */
+/*   Created: 2025/03/31 15:41:52 by lruiz-to          #+#    #+#             */
+/*   Updated: 2025/03/31 15:44:35 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../libs/libft/libft.h"
+#include "push_swap.h"
 
-typedef struct s_stack
+void ft_free_stack(t_push_swap *ps)
 {
-	long long int	content;
-	struct s_stack	*next;
-}	t_stack;
-
-typedef struct s_push_swap
-{
-	t_stack	*a;
-	t_stack	*b;
-}	t_push_swap;
-
-int		ft_error(char *str);
-int		ft_check_valid(int argc, char **argv, t_stack *list);
-long	ft_atol(char *num);
-
-#endif
+	t_stack *temp;
+	
+	while (ps->a)
+	{
+		temp = ps->a;
+		ps->a = ps->a->next;
+		free(temp);
+	}
+	while (ps->b)
+	{
+		temp = ps->b;
+		ps->b = ps->b->next;
+		free(temp);
+	}
+	free(ps);
+}
