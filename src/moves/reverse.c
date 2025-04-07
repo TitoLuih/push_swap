@@ -1,35 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 15:29:15 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/04/07 14:44:52 by lruiz-to         ###   ########.fr       */
+/*   Created: 2025/04/07 15:32:40 by lruiz-to          #+#    #+#             */
+/*   Updated: 2025/04/07 15:57:20 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../libs/libft/libft.h"
-
-typedef struct s_stack
-{
-	long long int	content;
-	struct s_stack	*next;
-	int				index;
-	int				g_spot;
-}	t_stack;
-
-typedef struct s_push_swap
-{
-	t_stack	*a;
-	t_stack	*b;
-}	t_push_swap;
-
-int		ft_error(char *str);
-int		ft_check_valid(int argc, char **argv, t_stack *list);
-long	ft_atol(char *num);
-
-#endif
+#include "push_swap.h"
