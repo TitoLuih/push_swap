@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:32:50 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/03/31 15:33:44 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/04/10 15:11:01 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 t_stack	*stack_new(long long int content)
 {
-	t_stack	*x;
+	t_stack	*n;
 
-	x = (t_stack *) malloc (sizeof(t_stack));
-	if (!x)
+	n = (t_stack *) malloc (sizeof(t_stack));
+	if (!n)
 		return (NULL);
-	x->content = content;
-	x->next = NULL;
-	return (x);
+	n->content = content;
+	n->next = NULL;
+	return (n);
 }
 
 int	stack_size(t_stack *lst)

@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:11:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/03/27 15:10:42 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:49:13 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_stacker(char **argv, t_push_swap *list, int argc)
 {
 	int	i;
+	int cont;
 
 	if (argc == 2)
 		i = 0;
@@ -22,8 +23,13 @@ int	ft_stacker(char **argv, t_push_swap *list, int argc)
 		i = 1;
 	while (argv[i]) 
 	{
-		//TODO meter un control de si es numero o no
-		//esta en ft_atol, deberia comprobarlo dos veces?
+		cont = 0;
+		while (cont <= ft_strlen(argv[i]))
+		{
+			if (ft_isdigit(argv[i][cont]) == 1)
+				return (EXIT_FAILURE);
+			cont++;	
+		}
 		list->a->content = ft_atol(&argv[i]);
 		list->a = list->a->next;
 		i++;
@@ -33,7 +39,7 @@ int	ft_stacker(char **argv, t_push_swap *list, int argc)
 	return(EXIT_SUCCESS);
 }
 
-int	ft_check_valid(int argc, char **argv, t_stack *list)
+int	ft_check_valid(int argc, char **argv, t_push_swap *list)
 {
 	char **splited;
 	
@@ -43,5 +49,5 @@ int	ft_check_valid(int argc, char **argv, t_stack *list)
 		ft_stacker(splited, list, argc);
 	}
 	else
-		ft_stacker(*argv, list, argc);
+		ft_stacker(argv, list, argc);
 }
