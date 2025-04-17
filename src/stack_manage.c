@@ -31,8 +31,8 @@ int	stack_size(t_stack *lst)
 	i = 0;
 	while (lst)
 	{
-		i++;
 		lst = lst->next;
+		i++;
 	}
 	return (i);
 }

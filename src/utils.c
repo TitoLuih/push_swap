@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:24:55 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/04/10 14:31:32 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/04/17 12:59:13 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,17 @@ long	ft_atol(char *num)
 		cont++;
 	}
 	return (res * sign);
+}
+
+int	ft_stack_size(t_stack *stack)
+{
+	int	size;
+
+	size = 0;
+	while (stack)
+	{
+		size++;
+		stack->next;
+	}
+	return (size);
 }

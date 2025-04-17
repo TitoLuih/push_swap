@@ -17,9 +17,11 @@
 typedef struct s_stack
 {
 	long long int	content;
-	struct s_stack	*next;
+	int				cost;
 	int				index;
-	int				g_spot;
+	bool			below;
+	struct s_stack	*obj_node;
+	struct s_stack	*next;
 }	t_stack;
 
 typedef struct s_push_swap
