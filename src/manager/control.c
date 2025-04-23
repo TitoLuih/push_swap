@@ -6,11 +6,40 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:11:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/04/21 13:30:08 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/04/23 18:05:01 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int check_empty(char **str, int argc)
+{
+	int i;
+	int j;
+	int check;
+
+	check = 0;
+	j = 1;
+	i = 0;
+	while (str[j][i] != '\0' && j <= argc - 1)
+	{
+		if (str[j][i] != " ")
+			check++;
+		else if (str[j][i] != "\0" && j < argc - 1)
+		{
+			if (check == 0)
+				return (EXIT_FAILURE);
+			i = 0;
+			j++;
+		}
+		else
+			i ++;
+	}
+	if (check >= 1)
+		return (EXIT_SUCCESS);
+	else
+		return (EXIT_FAILURE);
+}
 
 int	ft_stacker(char **argv, t_push_swap *list, int argc)
 {
@@ -42,7 +71,9 @@ int	ft_stacker(char **argv, t_push_swap *list, int argc)
 int	ft_check_valid(int argc, char **argv, t_push_swap *list)
 {
 	char **splited;
-	
+
+	if (check_empty(argv, argc) == 1)
+		return(ft_error("Empty arguments"));
 	if (argc == 2)
 	{
 		splited = ft_split(argv[1], " ");
