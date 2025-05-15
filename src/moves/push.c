@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 15:24:24 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/04/10 16:06:21 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/05/15 12:46:40 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	pa(t_push_swap *lst)
 {
 	t_stack	*tmp;
-	
+
 	tmp = lst->b->next;
 	lst->b->next = lst->a;
 	lst->a = lst->b;
@@ -26,7 +26,7 @@ void	pa(t_push_swap *lst)
 void	pb(t_push_swap *lst)
 {
 	t_stack	*tmp;
-	
+
 	tmp = lst->a->next;
 	lst->a->next = lst->b;
 	lst->b = lst->a;

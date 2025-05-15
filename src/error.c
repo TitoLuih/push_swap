@@ -6,16 +6,16 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 15:41:52 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/03/31 15:44:35 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/05/15 12:42:32 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_free_stack(t_push_swap *ps)
+void	ft_free_stack(t_push_swap *ps)
 {
-	t_stack *temp;
-	
+	t_stack	*temp;
+
 	while (ps->a)
 	{
 		temp = ps->a;
