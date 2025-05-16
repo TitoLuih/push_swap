@@ -6,12 +6,18 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:11:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/05/15 12:44:49 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/05/16 12:51:15 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// ./push_swap 1 2 3 4 5 6
+//./push_swap "12 5 1 2 3 4"
+// !! ./push_swap "12 5 1 2 3 4" 9 23 434 43434 NO VALIDO 
+// !! ./push_swap "  1232 12  12 12 1 " "1212 1212 " NO VALIDO
+// !! ./push_swap "     " "12 1 121434 " NO VALIDO
+ 
 int	check_empty(char **str, int argc)
 {
 	int	i;
@@ -21,11 +27,11 @@ int	check_empty(char **str, int argc)
 	check = 0;
 	j = 1;
 	i = 0;
-	while (str[j][i] != '\0' && j <= argc - 1)
+	while (str[j][i] != '\0' && j <= argc - 1) //!! esto puede ser menos 2
 	{
-		if (str[j][i] != " ")
+		if (ft_isdigit(str[j][i]) != 1)
 			check++;
-		else if (str[j][i] != "\0" && j < argc - 1)
+		else if (str[j][i] != "\0" && j < argc - 1) //!! esto tambien puede ser menos 2 si falla
 		{
 			if (check == 0)
 				return (EXIT_FAILURE);
@@ -41,31 +47,16 @@ int	check_empty(char **str, int argc)
 		return (EXIT_FAILURE);
 }
 
-int	ft_stacker(char **argv, t_push_swap *list, int argc)
+int check_for_doubles(t_push_swap *list)
 {
-	int	i;
-	int	cont;
-
-	if (argc == 2)
-		i = 0;
-	else
-		i = 1;
-	while (argv[i])
+	int temp;
+	int count;
+	
+	while (list->a->next)
 	{
-		cont = 0;
-		while (cont <= ft_strlen(argv[i]))
-		{
-			if (ft_isdigit(argv[i][cont]) == 1)
-				return (EXIT_FAILURE);
-			cont++;
-		}
-		list->a->content = ft_atol(&argv[i]);
-		list->a = list->a->next;
-		i++;
+		temp = list->a->content;
+		list;
 	}
-	if (!list)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
 }
 
 int	ft_check_valid(int argc, char **argv, t_push_swap *list)
@@ -74,11 +65,11 @@ int	ft_check_valid(int argc, char **argv, t_push_swap *list)
 
 	if (check_empty(argv, argc) == 1)
 		return (ft_error("Empty arguments"));
-	if (argc == 2)
+	else if (argc == 2)
 	{
 		splited = ft_split(argv[1], " ");
-		ft_stacker(splited, list, argc);
+		ft_stacker(argv, list, argc);
 	}
-	else
+	else if (argc >= 3)
 		ft_stacker(argv, list, argc);
 }
