@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:11:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/05/19 11:19:24 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/05/19 11:25:51 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ int	check_empty(char **str, int argc)
 
 int check_for_doubles(t_push_swap *list)
 {
-	int temp;
-	t_push_swap *temp_ps;
+	long long	temp;
+	t_push_swap	*temp_ps;
 	
 	temp_ps = list;
-	while (list->a->next)
+	while (temp_ps)
 	{
 		temp = temp_ps->a->content;
 		while(temp_ps)
@@ -63,6 +63,7 @@ int check_for_doubles(t_push_swap *list)
 			else
 				temp_ps->a->next;
 		}
+		temp_ps->a->next;
 	}
 }
 
