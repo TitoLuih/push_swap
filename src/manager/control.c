@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:11:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/05/16 12:51:15 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/05/19 11:19:24 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int	check_empty(char **str, int argc)
 	check = 0;
 	j = 1;
 	i = 0;
-	while (str[j][i] != '\0' && j <= argc - 1) //!! esto puede ser menos 2
+	while (str[j][i] != '\0' && j <= argc - 1)
 	{
 		if (ft_isdigit(str[j][i]) != 1)
 			check++;
-		else if (str[j][i] != "\0" && j < argc - 1) //!! esto tambien puede ser menos 2 si falla
+		else if (str[j][i] != "\0" && j < argc - 1)
 		{
 			if (check == 0)
 				return (EXIT_FAILURE);
@@ -50,12 +50,19 @@ int	check_empty(char **str, int argc)
 int check_for_doubles(t_push_swap *list)
 {
 	int temp;
-	int count;
+	t_push_swap *temp_ps;
 	
+	temp_ps = list;
 	while (list->a->next)
 	{
-		temp = list->a->content;
-		list;
+		temp = temp_ps->a->content;
+		while(temp_ps)
+		{
+			if (temp_ps == temp)
+				return(EXIT_FAILURE);
+			else
+				temp_ps->a->next;
+		}
 	}
 }
 
@@ -72,4 +79,6 @@ int	ft_check_valid(int argc, char **argv, t_push_swap *list)
 	}
 	else if (argc >= 3)
 		ft_stacker(argv, list, argc);
+	if (check_for_doubles(list) == 1)
+		ft_error("There are digits repeated");
 }
