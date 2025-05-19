@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:29:15 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/05/16 12:39:31 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/05/19 14:39:00 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ typedef struct s_push_swap
 
 int		ft_check_valid(int argc, char **argv, t_stack *list);
 long	ft_atol(char *num);
+int		ft_stack_size(t_stack *stack);
+t_stack	*stack_new(long long int content);
 int		ft_stacker(char **argv, t_push_swap *list, int argc);
 void	ft_free_stack(t_push_swap *ps);
+int 	is_one_num(t_stack *list);
 void	pa(t_push_swap *lst);
 void	pb(t_push_swap *lst);
 void	sa(t_push_swap *lst);

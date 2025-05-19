@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:27:20 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/05/16 12:37:36 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/05/19 11:53:33 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	main(int argc, char *argv)
 		list = malloc(sizeof(t_push_swap));
 		ft_check_valid(argc, argv, list);
 	}
-//??	else
-//??		ft_error("Not enough arguments");
+	else
+		ft_error("Not enough arguments");
 }

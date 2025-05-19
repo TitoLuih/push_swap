@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:11:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/05/19 11:25:51 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/05/19 11:47:38 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,5 @@ int	ft_check_valid(int argc, char **argv, t_push_swap *list)
 	else if (argc >= 3)
 		ft_stacker(argv, list, argc);
 	if (check_for_doubles(list) == 1)
-		ft_error("There are digits repeated");
+		return (ft_error("There are digits repeated"));
 }
