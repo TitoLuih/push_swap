@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:11:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/05/19 11:47:38 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/05/19 17:05:31 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // !! ./push_swap "12 5 1 2 3 4" 9 23 434 43434 NO VALIDO 
 // !! ./push_swap "  1232 12  12 12 1 " "1212 1212 " NO VALIDO
 // !! ./push_swap "     " "12 1 121434 " NO VALIDO
- 
+
 int	check_empty(char **str, int argc)
 {
 	int	i;
@@ -55,7 +55,7 @@ int check_for_doubles(t_push_swap *list)
 	temp_ps = list;
 	while (temp_ps)
 	{
-		temp = temp_ps->a->content;
+		temp = temp_ps->a->value;
 		while(temp_ps)
 		{
 			if (temp_ps == temp)

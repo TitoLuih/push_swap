@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:27:28 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/05/16 12:39:48 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/05/19 17:05:23 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_stacker(char **argv, t_push_swap *list, int argc)
 				return (EXIT_FAILURE);
 			cont++;
 		}
-		list->a->content = ft_atol(&argv[i]);
+		list->a->value = ft_atol(&argv[i]);
 		list->a = list->a->next;
 		i++;
 	}

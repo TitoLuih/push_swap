@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:48:48 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/05/19 14:38:57 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/05/19 17:05:28 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_is_sorted(t_stack *list)
 	temp = list;
 	while (temp->next)
 	{
-		if (temp->content > temp->next->content)
+		if (temp->value > temp->next->value)
 			return (EXIT_FAILURE);
 		temp = temp->next;
 	}
