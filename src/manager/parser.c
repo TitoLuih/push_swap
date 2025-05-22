@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:27:28 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/05/19 17:05:23 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/05/22 11:43:34 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_stacker(char **argv, t_push_swap *list, int argc)
 {
- 	int	i;
+	int	i;
 	int	cont;
 
 	i = 1;

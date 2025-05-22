@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:29:15 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/05/19 17:05:14 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/05/22 11:41:32 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		ft_is_sorted(t_stack *list);
 t_stack	*stack_new(long long int content);
 int		ft_stacker(char **argv, t_push_swap *list, int argc);
 void	ft_free_stack(t_push_swap *ps);
-int 	is_one_num(t_stack *list);
+int		is_one_num(t_stack *list);
 void	pa(t_push_swap *lst);
 void	pb(t_push_swap *lst);
 void	sa(t_push_swap *lst);

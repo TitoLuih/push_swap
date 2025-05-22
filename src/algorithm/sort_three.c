@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:48:05 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/05/19 17:15:48 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/05/22 11:45:33 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 static int	biggest_value(t_stack *stack)
 {
 	int	biggest;
-	
+
 	biggest = stack->value;
-	while(stack)
+	while (stack)
 	{
-		if(stack->value > biggest)
+		if (stack->value > biggest)
 			biggest = stack->value;
-		stack->next;			
+		stack->next;
 	}
 	return (biggest);
 }
 
 void	sort_three(t_push_swap *list)
 {
-	t_push_swap *temp_ps;
-	int big_poppa;
-	
+	t_push_swap	*temp_ps;
+	int			big_poppa;
+
 	big_poppa = biggest_value(list->a);
 	if (list->a->value == big_poppa)
-		ra(list);
+		ra (list);
 	else if (list->a->next->value == big_poppa)
-		rra(list);
+		rra (list);
 	else if (list->a->value > list->a->next->value)
-		sa(list);
+		sa (list);
 }
