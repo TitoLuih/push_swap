@@ -28,6 +28,8 @@ typedef struct s_push_swap
 {
 	t_stack	*a;
 	t_stack	*b;
+	int size_a;
+	int size_b;
 }	t_push_swap;
 
 int		ft_check_valid(int argc, char **argv, t_push_swap *list);

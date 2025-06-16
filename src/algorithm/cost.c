@@ -10,8 +10,5 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	get_cost(t_push_swap **lst)
-{
-}
