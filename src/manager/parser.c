@@ -23,6 +23,7 @@ int	ft_stacker(char **argv, t_push_swap *list, int argc)
 		cont = 0;
 		while (cont <= ft_strlen(argv[i]))
 		{
+			//TODO crear funcion que acepte numeros negativos
 			if (ft_isdigit(argv[i][cont]) == 1)
 				return (EXIT_FAILURE);
 			cont++;

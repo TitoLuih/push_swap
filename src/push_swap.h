@@ -13,6 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "../libs/libft/libft.h"
+# include <limits.h>
 # include <stdbool.h>
 
 typedef struct s_stack
