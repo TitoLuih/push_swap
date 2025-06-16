@@ -17,6 +17,7 @@
 // !! ./push_swap "12 5 1 2 3 4" 9 23 434 43434 NO VALIDO 
 // !! ./push_swap "  1232 12  12 12 1 " "1212 1212 " NO VALIDO
 // !! ./push_swap "     " "12 1 121434 " NO VALIDO
+// !! numeros duplicados no es aceptado
 
 int	check_empty(char **str, int argc)
 {

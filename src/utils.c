@@ -64,3 +64,9 @@ t_stack	*stack_new(long long int content)
 	n->next = NULL;
 	return (n);
 }
+
+void	sort_two(t_stack *a)
+{
+	if (a->value > a->next->value)
+		sa(a);
+}

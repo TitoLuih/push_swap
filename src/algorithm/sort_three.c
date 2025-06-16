@@ -12,30 +12,29 @@
 
 #include "push_swap.h"
 
-static int	biggest_value(t_stack *stack)
+void	sort_three(t_stack *a)
 {
-	int	biggest;
+	int	first;
+	int	second;
+	int	third;
 
-	biggest = stack->value;
-	while (stack)
+	first = a->value;
+	second = a->next->value;
+	third = a->next->next->value;
+	if (first > second && second < third && first < third)
+		sa(a);
+	else if (first > second && second > third)
 	{
-		if (stack->value > biggest)
-			biggest = stack->value;
-		stack->next;
+		sa(a);
+		rra(a);
 	}
-	return (biggest);
-}
-
-void	sort_three(t_push_swap *list)
-{
-	t_push_swap	*temp_ps;
-	int			big_poppa;
-
-	big_poppa = biggest_value(list->a);
-	if (list->a->value == big_poppa)
-		ra (list);
-	else if (list->a->next->value == big_poppa)
-		rra (list);
-	else if (list->a->value > list->a->next->value)
-		sa (list);
+	else if (first > second && second < third && first > third)
+		ra(a);
+	else if (first < second && second > third && first < third)
+	{
+		sa(a);
+		ra(a);
+	}
+	else if (first < second && second > third && first > third)
+		rra(a);
 }

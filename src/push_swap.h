@@ -20,8 +20,6 @@ typedef struct s_stack
 	long long int	value;
 	int				cost;
 	int				index;
-	bool			below;
-	struct s_stack	*obj_node;
 	struct s_stack	*next;
 }	t_stack;
 

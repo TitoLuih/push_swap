@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-int	get_cost(t_stack **a, t_stack **b)
+int	get_cost(t_push_swap **lst)
 {
-	
 }
