@@ -38,3 +38,9 @@ void	sort_three(t_stack *a)
 	else if (first < second && second > third && first > third)
 		rra(a);
 }
+
+void	sort_two(t_stack *a)
+{
+	if (a->value > a->next->value)
+		sa(a);
+}
