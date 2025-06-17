@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 00:40:42 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/17 01:35:20 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/17 01:38:54 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,64 @@ static void	find_closest_bigger(t_push_swap *lst, int b_value, int *pos)
 	i = 0;
 	while (i < lst->size_a)
 	{
-		if (lst->a->value > b_value && lst->a->value < closest_val)
+		if (temp_a->value > b_value && temp_a->value < closest_val)
 		{
 			closest_val = lst->a->value;
 			*pos = i;
 		}
-		lst->a = lst->a->next;
+		temp_a = temp_a->next;
 		i++;
 	}
 }
 
+static void	find_min_value(t_push_swap *lst, int *pos)
+{
+	t_stack	*temp_a;
+	int		min_val;
+	int		i;
 
+	temp_a = lst->a;
+	min_val = INT_MAX;
+	*pos = -1;
+	i = 0;
+	while (i < lst->size_a)
+	{
+		if (temp_a->value < min_val)
+		{
+			min_val = temp_a->value;
+			*pos = i;
+		}
+		temp_a = temp_a->next;
+		i++;
+	}
+}
+
+int	find_cheapest_move(int *cost_a, int *cost_b, int size)
+{
+	int	min_cost;
+	int	min_index;
+	int	total_cost;
+	int	i;
+
+	min_cost = INT_MAX;
+	min_index = -1;
+	i = 0;
+	while (i < size)
+	{
+		if ((cost_a[i] > 0 && cost_b[i] > 0) || (cost_a[i] < 0
+				&& cost_b[i] < 0))
+			total_cost = ft_max(ft_abs(cost_a[i]), ft_abs(cost_b[i]));
+		else
+			total_cost = ft_abs(cost_a[i]) + ft_abs(cost_b[i]);
+		if (total_cost < min_cost)
+		{
+			min_cost = total_cost;
+			min_index = i;
+		}
+		i++;
+	}
+	return (min_index);
+}
 
 void	calc_cost(t_push_swap *lst, int *cost_a, int *cost_b)
 {
