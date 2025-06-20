@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:11:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/05/22 11:42:34 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/20 19:46:26 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	check_empty(char **str, int argc)
 	{
 		if (ft_isdigit(str[j][i]) != 1)
 			check++;
-		else if (str[j][i] != "\0" && j < argc - 1)
+		else if (&str[j][i] != "\0" && j < argc - 1)
 		{
 			if (check == 0)
 				return (EXIT_FAILURE);
@@ -59,7 +59,7 @@ int	check_for_doubles(t_push_swap *list)
 		temp = temp_ps->a->value;
 		while (temp_ps)
 		{
-			if (temp_ps == temp)
+			if (&temp_ps == temp)
 				return (EXIT_FAILURE);
 			else
 				temp_ps->a->next;
@@ -77,7 +77,7 @@ int	ft_check_valid(int argc, char **argv, t_push_swap *list)
 		return (ft_error("Empty arguments"));
 	else if (argc == 2)
 	{
-		splited = ft_split(argv[1], " ");
+		splited = ft_split(argv[1], ' ');
 		ft_stacker(argv, list, argc);
 	}
 	else if (argc >= 3)

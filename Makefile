@@ -12,7 +12,6 @@ SRC = src/moves/push.c\
 	src/manager/control.c\
 	src/manager/is_sorted.c\
 	src/manager/parser.c\
-	src/manager/stack_manage.c\
 	src/utils.c\
 	src/algorithm/algorithm.c\
 	src/algorithm/cost_calc.c\
