@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:24:55 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/20 17:02:08 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/20 19:18:03 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ t_stack	*stack_new(long long int content)
 	return (n);
 }
 
-t_stack	*find_min(t_push_swap *lst)
+int	*find_min(t_push_swap *lst)
 {
 	t_stack	*current;
 	t_stack	*min_node;
@@ -80,5 +80,5 @@ t_stack	*find_min(t_push_swap *lst)
 			min_node = current;
 		current = current->next;
 	}
-	return (min_node);
+	return (lst->top_a);
 }

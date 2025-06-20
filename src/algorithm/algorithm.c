@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 01:12:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/17 22:30:21 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/20 19:18:24 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static void	final_rotation(t_push_swap *lst)
 {
-	t_node	*min_node;
+	int		min_node;
 	int		min_pos;
 
 	min_node = find_min(lst);
-	min_pos = get_position(lst->a, min_node->value);
+	min_pos = get_position(lst->a, min_node);
 	if (min_pos <= lst->size_a / 2)
 	{
 		while (min_pos > 0)

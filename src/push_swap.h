@@ -6,13 +6,13 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:29:15 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/19 15:31:47 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/20 19:39:34 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "../libs/libft/libft.h"
+# include "../libft/libft.h"
 # include <limits.h>
 # include <stdbool.h>
 
@@ -53,5 +53,13 @@ void	rrr(t_push_swap *lst);
 void	ra(t_push_swap *lst);
 void	rb(t_push_swap *lst);
 void	rr(t_push_swap *lst);
+void	sort_three(t_stack *a);
+void	sort_two(t_stack *a);
+void	execute_move(t_push_swap *lst, int cost_a, int cost_b);
+void	cost_algorithm(t_push_swap *lst);
+void	calc_cost(t_push_swap *lst, int *cost_a, int *cost_b);
+int	find_target_position(t_push_swap *lst, int b_value);
+void	execute_cheapest_move(t_push_swap *lst, int *cost_a, int *cost_b);
+
 
 #endif
