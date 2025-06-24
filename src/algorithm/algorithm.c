@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 01:12:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/20 19:18:24 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/24 18:42:41 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	final_rotation(t_push_swap *lst)
 	{
 		while (min_pos > 0)
 		{
-			ra(lst->a);
+			ra(lst);
 			min_pos--;
 		}
 	}
@@ -31,7 +31,7 @@ static void	final_rotation(t_push_swap *lst)
 	{
 		while (min_pos < lst->size_a)
 		{
-			rra(lst->a);
+			rra(lst);
 			min_pos++;
 		}
 	}
@@ -44,17 +44,16 @@ void	cost_algorithm(t_push_swap *lst)
 	int	*cost_a;
 	int	*cost_b;
 
-	//prepare_stacks(a, b);
 	costs = (int *)malloc(sizeof(int) * lst->size_b * 2);
 	if (!costs)
-		error_exit(NULL);
+		ft_error(" ");
 	while (lst->size_b > 0)
 	{
 		cost_a = costs;
 		cost_b = costs + lst->size_b;
-		calculate_cost(lst->a, lst->b, cost_a, cost_b);
+		calc_cost(lst, cost_a, cost_b);
 		cheapest_idx = find_cheapest_move(cost_a, cost_b, lst->size_b);
-		execute_cheapest_move(lst->a, lst->b, cost_a, cost_b);
+		execute_cheapest_move(lst, cost_a, cost_b);
 	}
 	free(costs);
 	final_rotation(lst);

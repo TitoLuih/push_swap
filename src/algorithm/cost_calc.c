@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 00:40:42 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/17 01:38:54 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/24 18:32:58 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	calc_cost(t_push_swap *lst, int *cost_a, int *cost_b)
             cost_b[i] = i;
         else
 			cost_b[i] = i - lst->size_b;
-		target = find_target(lst, b_temp->value);
+		target = find_target_position(lst, b_temp->value);
 		if (target <= lst->size_a / 2)
 			cost_a[i] = target;
 		else
@@ -114,8 +114,8 @@ int	find_target_position(t_push_swap *lst, int b_value)
 
 	if (lst->size_a == 0)
 		return (0);
-	find_closest_bigger(lst->a, b_value, &closest_bigger_pos);
-	find_min_value(lst->a, &min_pos);
+	find_closest_bigger(lst, b_value, &closest_bigger_pos);
+	find_min_value(lst, &min_pos);
 	if (closest_bigger_pos == -1)
 		return (min_pos);
 	return (closest_bigger_pos);

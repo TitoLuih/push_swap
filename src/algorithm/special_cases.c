@@ -1,46 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   special_cases.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:48:05 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/05/22 11:45:33 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/24 18:36:34 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort_three(t_stack *a)
+void	sort_three(t_push_swap *lst)
 {
 	int	first;
 	int	second;
 	int	third;
 
-	first = a->value;
-	second = a->next->value;
-	third = a->next->next->value;
+	first = lst->a->value;
+	second = lst->a->next->value;
+	third = lst->a->next->next->value;
 	if (first > second && second < third && first < third)
-		sa(a);
+		sa(lst);
 	else if (first > second && second > third)
 	{
-		sa(a);
-		rra(a);
+		sa(lst);
+		rra(lst);
 	}
 	else if (first > second && second < third && first > third)
-		ra(a);
+		ra(lst);
 	else if (first < second && second > third && first < third)
 	{
-		sa(a);
-		ra(a);
+		sa(lst);
+		ra(lst);
 	}
 	else if (first < second && second > third && first > third)
-		rra(a);
+		rra(lst);
 }
 
-void	sort_two(t_stack *a)
+void	sort_two(t_push_swap *lst)
 {
-	if (a->value > a->next->value)
-		sa(a);
+	if (lst->a->value > lst->a->next->value)
+		sa(lst);
 }

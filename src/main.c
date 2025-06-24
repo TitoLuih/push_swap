@@ -6,23 +6,30 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:27:20 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/05/22 11:42:58 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/24 19:21:23 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//TODO Si no se especifican parámetros,
-//TODO el programa no deberá mostrar nada y 
-//TODO deberá devolver el control al usuario
-int	main(int argc, char *argv)
+
+int	main(int argc, char **argv)
 {
-	t_push_swap	*list;
+	t_push_swap	*lst;
 
 	if (argc >= 2)
 	{
-		list = malloc(sizeof(t_push_swap));
-		ft_check_valid(argc, argv, list);
+		lst = ft_calloc(1, sizeof(t_push_swap));
+		if (control(argc, argv, lst) == EXIT_FAILURE)
+			return (ft_freemen(lst), print_error());
+		ft_push_swap(lst);
+		ft_freemen(lst);
 	}
 	else
-		ft_error("Not enough arguments");
+	{
+		if (argc == 1)
+			return (EXIT_SUCCESS);
+		else
+			return (print_error());
+	}
+	return (EXIT_SUCCESS);
 }

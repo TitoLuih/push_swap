@@ -6,11 +6,11 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:44:35 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/04/21 13:19:05 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/24 18:43:04 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
 int	ft_error(char *str)
 {

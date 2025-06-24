@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:29:15 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/20 19:39:34 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/24 18:37:30 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,17 @@ void	rrr(t_push_swap *lst);
 void	ra(t_push_swap *lst);
 void	rb(t_push_swap *lst);
 void	rr(t_push_swap *lst);
-void	sort_three(t_stack *a);
-void	sort_two(t_stack *a);
+void	sort_three(t_push_swap *lst);
+void	sort_two(t_push_swap *lst);
 void	execute_move(t_push_swap *lst, int cost_a, int cost_b);
 void	cost_algorithm(t_push_swap *lst);
 void	calc_cost(t_push_swap *lst, int *cost_a, int *cost_b);
-int	find_target_position(t_push_swap *lst, int b_value);
+int		find_target_position(t_push_swap *lst, int b_value);
 void	execute_cheapest_move(t_push_swap *lst, int *cost_a, int *cost_b);
-
-
+int		find_min(t_push_swap *lst);
+int		get_position(t_stack *stack, int value);
+int		find_cheapest_move(int *cost_a, int *cost_b, int size);
+int		ft_min(int a, int b);
+int		ft_max(int a, int b);
+int		ft_abs(int n);
 #endif

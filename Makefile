@@ -6,13 +6,14 @@ LIBFT_PATH = libs/libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
 SRC = src/moves/push.c\
-	src/moves/push.c\
-	src/moves/r_reverse.c\
+	src/moves/swap.c\
+	src/moves/reverse.c\
 	src/moves/r_reverse.c\
 	src/manager/control.c\
 	src/manager/is_sorted.c\
 	src/manager/parser.c\
 	src/utils.c\
+	src/utils_2.c\
 	src/algorithm/algorithm.c\
 	src/algorithm/cost_calc.c\
 	src/algorithm/cost_exec.c\
