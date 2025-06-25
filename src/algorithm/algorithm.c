@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 01:12:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/24 18:42:41 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/25 21:04:42 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	final_rotation(t_push_swap *lst)
 {
+	ft_printf("final_rotation\n");
 	int		min_node;
 	int		min_pos;
 
@@ -43,7 +44,7 @@ void	cost_algorithm(t_push_swap *lst)
 	int	cheapest_idx;
 	int	*cost_a;
 	int	*cost_b;
-
+	ft_printf("cost_algorithm\n");
 	costs = (int *)malloc(sizeof(int) * lst->size_b * 2);
 	if (!costs)
 		ft_error(" ");

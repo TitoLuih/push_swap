@@ -5,7 +5,9 @@ FLAGS = -Werror -Wextra -Wall
 LIBFT_PATH = libs/libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
-SRC = src/moves/push.c\
+SRC = src/main.c\
+	src/error.c\
+	src/moves/push.c\
 	src/moves/swap.c\
 	src/moves/reverse.c\
 	src/moves/r_reverse.c\

@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:24:55 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/24 18:07:19 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/24 19:31:42 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,23 @@ int	find_min(t_push_swap *lst)
 		current = current->next;
 	}
 	return (temp);
+}
+
+void	ft_freemen(t_push_swap *lst)
+{
+	t_stack	*tmp;
+
+	while (lst->a)
+	{
+		tmp = lst->a;
+		lst->a = lst->a->next;
+		free(tmp);
+	}
+	while (lst->b)
+	{
+		tmp = lst->b;
+		lst->b = lst->b->next;
+		free(tmp);
+	}
+	free(lst);
 }

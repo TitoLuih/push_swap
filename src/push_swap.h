@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:29:15 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/24 18:37:30 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/25 20:54:03 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ long	ft_atol(char *num);
 int		ft_stack_size(t_stack *stack);
 int		ft_is_sorted(t_stack *list);
 t_stack	*stack_new(long long int content);
+void	ft_freemen(t_push_swap *lst);
 int		ft_stacker(char **argv, t_push_swap *list, int argc);
 void	ft_free_stack(t_push_swap *ps);
 int		is_one_num(t_stack *list);
@@ -66,4 +67,9 @@ int		find_cheapest_move(int *cost_a, int *cost_b, int size);
 int		ft_min(int a, int b);
 int		ft_max(int a, int b);
 int		ft_abs(int n);
+void	push_swap_algorithm(t_push_swap *lst);
+int	control(int argc, char **argv, t_push_swap *lst);
+void	ft_free_split(char **split);
+int	ft_count_words(char const *str, char sep);
+
 #endif
