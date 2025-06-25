@@ -1,53 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   r_rotate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/27 15:24:28 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/25 22:28:18 by lruiz-to         ###   ########.fr       */
+/*   Created: 2025/04/07 15:57:00 by lruiz-to          #+#    #+#             */
+/*   Updated: 2025/06/25 22:32:31 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static t_stack	*swap(t_stack *stack)
+static t_stack	*r_rotate(t_stack *stack)
 {
     t_stack	*tmp;
 
     if (!stack || !stack->next)  // Add this check
         return (stack);
     tmp = stack;
-    stack = stack->next;
-    tmp->next = stack->next;
-    stack->next = tmp;
-    return (stack);
+    while (stack->next->next)
+        stack = stack->next;
+    stack->next->next = tmp;
+    tmp = stack->next;
+    stack->next = NULL;
+    return (tmp);
 }
 
-void	sa(t_push_swap *lst)
+void	rra(t_push_swap *lst)
 {
     if (!lst || !lst->a)  // Add this check
         return;
-    lst->a = swap(lst->a);
-    ft_printf("sa\n");
+    lst->a = r_rotate(lst->a);
+    ft_printf("rra\n");  // Remove the extra parameter
 }
 
-void	sb(t_push_swap *lst)
+void	rrb(t_push_swap *lst)
 {
     if (!lst || !lst->b)  // Add this check
         return;
-    lst->b = swap(lst->b);
-    ft_printf("sb\n");
+    lst->b = r_rotate(lst->b);
+    ft_printf("rrb\n");  // Remove the extra parameter
 }
 
-void	ss(t_push_swap *lst)
+void	rrr(t_push_swap *lst)
 {
     if (!lst)  // Add this check
         return;
     if (lst->a)
-        lst->a = swap(lst->a);
+        lst->a = r_rotate(lst->a);
     if (lst->b)
-        lst->b = swap(lst->b);
-    ft_printf("ss\n");
+        lst->b = r_rotate(lst->b);
+    ft_printf("rrr\n");  // Remove the extra parameter
 }

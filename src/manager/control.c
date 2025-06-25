@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:11:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/25 20:57:09 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/25 22:29:20 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	ft_check_valid(int argc, char **argv, t_push_swap *list)
 {
     char	**splited;
 
-    if (check_empty(argv, argc) == 1)
+    if (check_empty(argv, argc) == EXIT_FAILURE)
         return (ft_error("Empty arguments"));
     else if (argc == 2)
     {
@@ -92,7 +92,7 @@ int	ft_check_valid(int argc, char **argv, t_push_swap *list)
     else if (argc >= 3)
         if (ft_stacker(argv, list, argc) == EXIT_FAILURE)
             return (ft_error("Stacking failed"));
-    if (check_for_doubles(list) == 1)
+    if (check_for_doubles(list) == EXIT_FAILURE)  // Fix: was == 1
         return (ft_error("There are digits repeated"));
     return (EXIT_SUCCESS);
 }

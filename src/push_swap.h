@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:29:15 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/25 20:54:03 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/25 22:35:23 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,5 @@ void	push_swap_algorithm(t_push_swap *lst);
 int	control(int argc, char **argv, t_push_swap *lst);
 void	ft_free_split(char **split);
 int	ft_count_words(char const *str, char sep);
-
+void	cost_algorithm(t_push_swap *lst);
 #endif

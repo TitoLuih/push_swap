@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 00:40:42 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/24 18:32:58 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/25 22:40:59 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,57 @@
 
 static void	find_closest_bigger(t_push_swap *lst, int b_value, int *pos)
 {
-	t_stack	*temp_a;
-	int		closest_val;
-	int		i;
+    t_stack	*temp_a;
+    int		closest_val;
+    int		i;
 
-	temp_a = lst->a;
-	closest_val = INT_MAX;
-	*pos = -1;
-	i = 0;
-	while (i < lst->size_a)
-	{
-		if (temp_a->value > b_value && temp_a->value < closest_val)
-		{
-			closest_val = lst->a->value;
-			*pos = i;
-		}
-		temp_a = temp_a->next;
-		i++;
-	}
+    if (!lst || !lst->a)  // Add this check
+    {
+        *pos = -1;
+        return;
+    }
+    
+    temp_a = lst->a;
+    closest_val = INT_MAX;
+    *pos = -1;
+    i = 0;
+    while (i < lst->size_a && temp_a)  // Add temp_a check
+    {
+        if (temp_a->value > b_value && temp_a->value < closest_val)
+        {
+            closest_val = temp_a->value;
+            *pos = i;
+        }
+        temp_a = temp_a->next;
+        i++;
+    }
 }
 
 static void	find_min_value(t_push_swap *lst, int *pos)
 {
-	t_stack	*temp_a;
-	int		min_val;
-	int		i;
+    t_stack	*temp_a;
+    int		min_val;
+    int		i;
 
-	temp_a = lst->a;
-	min_val = INT_MAX;
-	*pos = -1;
-	i = 0;
-	while (i < lst->size_a)
-	{
-		if (temp_a->value < min_val)
-		{
-			min_val = temp_a->value;
-			*pos = i;
-		}
-		temp_a = temp_a->next;
-		i++;
-	}
+    if (!lst || !lst->a)
+    {
+        *pos = -1;
+        return;
+    }
+    temp_a = lst->a;
+    min_val = INT_MAX;
+    *pos = -1;
+    i = 0;
+    while (i < lst->size_a && temp_a)
+    {
+        if (temp_a->value < min_val)
+        {
+            min_val = temp_a->value;
+            *pos = i;
+        }
+        temp_a = temp_a->next;
+        i++;
+    }
 }
 
 int	find_cheapest_move(int *cost_a, int *cost_b, int size)
@@ -85,25 +96,25 @@ int	find_cheapest_move(int *cost_a, int *cost_b, int size)
 
 void	calc_cost(t_push_swap *lst, int *cost_a, int *cost_b)
 {
-	int target;
-	int i;
-	t_stack *b_temp;
+    int target;
+    int i;
+    t_stack *b_temp;
     
-	i = 0;
-	b_temp = lst->b;
-	while (i < lst->size_b)
+    i = 0;
+    b_temp = lst->b;
+    while (i < lst->size_b && b_temp)  // Add b_temp check here
     {
         if (i <= lst->size_b / 2)
             cost_b[i] = i;
         else
-			cost_b[i] = i - lst->size_b;
-		target = find_target_position(lst, b_temp->value);
-		if (target <= lst->size_a / 2)
-			cost_a[i] = target;
-		else
-			cost_a[i] = target - lst->size_a;
-		b_temp = b_temp->next;
-		i++;
+            cost_b[i] = i - lst->size_b;
+        target = find_target_position(lst, b_temp->value);
+        if (target <= lst->size_a / 2)
+            cost_a[i] = target;
+        else
+            cost_a[i] = target - lst->size_a;
+        b_temp = b_temp->next;
+        i++;
     }
 }
 

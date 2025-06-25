@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:24:55 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/24 19:31:42 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/25 21:32:16 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	find_min(t_push_swap *lst)
 	if (!lst->a)
 		return (EXIT_FAILURE);
 	current = lst->a;
+	temp = current->value;
 	while (current)
 	{
 		if (current->value < temp)

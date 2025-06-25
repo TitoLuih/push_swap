@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:27:20 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/25 21:08:12 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/25 21:21:12 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,16 @@ int	main(int argc, char **argv)
 	{
 		lst = ft_calloc(1, sizeof(t_push_swap));
 		if (!lst)
-		    return (ft_error("Memory allocation failed"));
-		lst->a = NULL;  // Add these initializations
-		lst->b = NULL;
+		    return (ft_error(""));
+		lst->a = NULL;		lst->b = NULL;
 		lst->size_a = 0;
 		lst->size_b = 0;
-		ft_printf("main1\n");
 		if (control(argc, argv, lst) == EXIT_FAILURE)
 		{
 		    ft_freemen(lst);
 		    return (ft_error(""));
 		}
-		ft_printf("main2\n");
-		if (lst->a && !ft_is_sorted(lst->a))
+		if (lst->a && ft_is_sorted(lst->a) == EXIT_FAILURE)
 		    push_swap_algorithm(lst);
 		ft_freemen(lst);
     }

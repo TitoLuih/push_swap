@@ -9,8 +9,8 @@ SRC = src/main.c\
 	src/error.c\
 	src/moves/push.c\
 	src/moves/swap.c\
-	src/moves/reverse.c\
-	src/moves/r_reverse.c\
+	src/moves/rotate.c\
+	src/moves/r_rotate.c\
 	src/manager/control.c\
 	src/manager/is_sorted.c\
 	src/manager/parser.c\
