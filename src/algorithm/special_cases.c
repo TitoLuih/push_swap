@@ -6,61 +6,89 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:48:05 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/26 00:28:43 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/27 13:06:27 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort_three(t_push_swap *lst)
+void	sort_two(t_stack *a)
 {
-    int	first;
-    int	second;
-    int	third;
-
-    if (!lst || !lst->a || !lst->a->next || !lst->a->next->next)  // Add this check
-        return;
-    first = lst->a->value;
-    second = lst->a->next->value;
-    third = lst->a->next->next->value;
-    if (first > second && second < third && first < third)
-        sa(lst);
-    else if (first > second && second > third)
-    {
-        sa(lst);
-        rra(lst);
-    }
-    else if (first > second && second < third && first > third)
-        ra(lst);
-    else if (first < second && second > third && first < third)
-    {
-        sa(lst);
-        ra(lst);
-    }
-    else if (first < second && second > third && first > third)
-        rra(lst);
+	if (a->top->value > a->top->next->value)
+		sa(a);
 }
 
-void	sort_two(t_push_swap *lst)
+void	sort_three(t_stack *a)
 {
-	if (lst->a->value > lst->a->next->value)
-		sa(lst);
+	int	first;
+	int	second;
+	int	third;
+
+	if (a->size != 3)
+		return ;
+	first = a->top->value;
+	second = a->top->next->value;
+	third = a->top->next->next->value;
+	if (first > second && second < third && first < third)
+		sa(a);
+	else if (first > second && second > third)
+	{
+		sa(a);
+		rra(a);
+	}
+	else if (first > second && second < third && first > third)
+		ra(a);
+	else if (first < second && second > third && first < third)
+	{
+		sa(a);
+		ra(a);
+	}
+	else if (first < second && second > third && first > third)
+		rra(a);
 }
 
-void	push_swap_algorithm(t_push_swap *lst)
+static void	move_min_to_top(t_stack *a, int min_value)
 {
-    if (lst->size_a <= 1)
-        return;
-    if (lst->size_a == 2)
-        sort_two(lst);
-    else if (lst->size_a == 3)
-        sort_three(lst);
-    else
-    {
-        while (lst->size_a > 3)
-            pb(lst);
-        if (!ft_is_sorted(lst->a))
-            sort_three(lst);
-        cost_algorithm(lst);
-    }
+	int	min_pos;
+
+	min_pos = get_position(a, min_value);
+	if (min_pos <= a->size / 2)
+	{
+		while (a->top->value != min_value)
+			ra(a);
+	}
+	else
+	{
+		while (a->top->value != min_value)
+			rra(a);
+	}
+}
+
+void	sort_five(t_stack *a, t_stack *b)
+{
+	t_node	*min;
+
+	while (a->size > 3)
+	{
+		min = find_min(a);
+		move_min_to_top(a, min->value);
+		pb(a, b);
+	}
+	sort_three(a);
+	while (b->size > 0)
+		pa(a, b);
+}
+
+void	push_swap_algorithm(t_stack *a, t_stack *b)
+{
+	if (is_sorted(a) == EXIT_FAILURE)
+		return ;
+	if (a->size == 2)
+		sort_two(a);
+	else if (a->size == 3)
+		sort_three(a);
+	else if (a->size <= 5)
+		sort_five(a, b);
+	else
+		cost_algorithm(a, b);
 }

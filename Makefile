@@ -11,7 +11,6 @@ SRC = src/main.c\
 	src/moves/swap.c\
 	src/moves/rotate.c\
 	src/moves/r_rotate.c\
-	src/manager/control.c\
 	src/manager/is_sorted.c\
 	src/manager/parser.c\
 	src/utils.c\

@@ -6,51 +6,43 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 15:32:40 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/25 21:37:40 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/27 13:06:41 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack	*rotate(t_stack *a)
+static void	rotate(t_stack *stack)
 {
-    t_stack	*temp;
-    t_stack	*aux;
+	t_node	*first;
+	t_node	*temp;
 
-    if (!a || !a->next)
-        return (a);
-    temp = a;
-    aux = a->next;
-    while (temp->next)
-        temp = temp->next;
-    temp->next = a;
-    a->next = NULL;
-    return (aux);
+	if (stack->size < 2)
+		return ;
+	first = stack->top;
+	temp = stack->top;
+	while (temp->next)
+		temp = temp->next;
+	stack->top = first->next;
+	first->next = NULL;
+	temp->next = first;
 }
 
-void	ra(t_push_swap *list)
+void	ra(t_stack *a)
 {
-    if (!list || !list->a)
-        return;
-    list->a = rotate(list->a);
-    ft_printf("ra\n");
+	rotate(a);
+	ft_printf("ra\n");
 }
 
-void	rb(t_push_swap *list)
+void	rb(t_stack *b)
 {
-    if (!list || !list->b)
-        return;
-    list->b = rotate(list->b);
-    ft_printf("rb\n");
+	rotate(b);
+	ft_printf("rb\n");
 }
 
-void	rr(t_push_swap *list)
+void	rr(t_stack *a, t_stack *b)
 {
-    if (!list)
-        return;
-    if (list->a)
-        list->a = rotate(list->a);
-    if (list->b)
-        list->b = rotate(list->b);
-    ft_printf("rr\n");
+	rotate(a);
+	rotate(b);
+	ft_printf("rr\n");
 }

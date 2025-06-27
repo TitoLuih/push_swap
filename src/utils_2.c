@@ -6,30 +6,11 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 20:06:15 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/27 09:13:57 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/27 13:06:02 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	get_position(t_stack *stack, int value)
-{
-	t_stack	*current;
-	int		position;
-
-	if (!stack)
-		return (-1);
-	current = stack;
-	position = 0;
-	while (current)
-	{
-		if (current->value == value)
-			return (position);
-		current = current->next;
-		position++;
-	}
-	return (-1);
-}
 
 int	ft_abs(int n)
 {
@@ -52,13 +33,28 @@ int	ft_min(int a, int b)
 	return (b);
 }
 
-int	ft_free_split(char **str)
+int	get_position(t_stack *stack, int value)
 {
-	int	i;
+	t_node	*current;
+	int		position;
 
-	i = -1;
-	while (str[++i])
-		free(str[i]);
-	free(str);
-	return (EXIT_FAILURE);
+	if (!stack->top)
+		return (-1);
+	current = stack->top;
+	position = 0;
+	while (current)
+	{
+		if (current->value == value)
+			return (position);
+		current = current->next;
+		position++;
+	}
+	return (-1);
+}
+
+int	stack_len(t_stack *stack)
+{
+	if (!stack)
+		return (0);
+	return (stack->size);
 }

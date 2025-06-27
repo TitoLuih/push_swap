@@ -6,96 +6,102 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:24:55 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/27 09:15:50 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/27 13:05:51 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atol(char *s)
+t_node	*find_min(t_stack *stack)
 {
-	long long int	n;
-	int				sign;
-	int				i;
+	t_node	*current;
+	t_node	*min_node;
 
-	n = 0;
+	if (!stack->top)
+		return (NULL);
+	current = stack->top;
+	min_node = current;
+	while (current)
+	{
+		if (current->value < min_node->value)
+			min_node = current;
+		current = current->next;
+	}
+	return (min_node);
+}
+
+t_node	*create_node(int value)
+{
+	t_node	*node;
+
+	node = malloc(sizeof(t_node));
+	if (!node)
+		return (NULL);
+	node->value = value;
+	node->index = -1;
+	node->next = NULL;
+	return (node);
+}
+
+void	add_to_bottom(t_stack *stack, t_node *node)
+{
+	t_node	*current;
+
+	if (!node)
+		return ;
+	if (!stack->top)
+	{
+		stack->top = node;
+	}
+	else
+	{
+		current = stack->top;
+		while (current->next)
+			current = current->next;
+		current->next = node;
+	}
+	stack->size++;
+}
+
+void	free_stack(t_stack *stack)
+{
+	t_node	*current;
+	t_node	*next;
+
+	if (!stack || !stack->top)
+		return ;
+	current = stack->top;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	stack->top = NULL;
+	stack->size = 0;
+}
+
+long	ft_atol(const char *str)
+{
+	long	res;
+	int		sign;
+	int		i;
+
+	res = 0;
 	sign = 1;
 	i = 0;
-	if (s[i] == '-' || s[i] == '+')
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (s[i] == '-')
+		if (str[i] == '-')
 			sign = -1;
 		i++;
 	}
-	while (s[i] >= '0' && s[i] <= '9')
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
-		n = n * 10 + (s[i] - '0');
+		res = res * 10 + (str[i] - '0');
 		i++;
 	}
-	return (n * sign);
-}
-
-int	ft_stack_size(t_stack *stack)
-{
-	int	size;
-
-	size = 0;
-	if (!stack)
-		return (0);
-	while (stack)
-	{
-		stack = stack->next;
-		size++;
-	}
-	return (size);
-}
-
-t_stack	*lst_new(long long int content)
-{
-	t_stack	*x;
-
-	x = (t_stack *) malloc (sizeof(t_stack));
-	if (!x)
-		return (NULL);
-	x->value = content;
-	x->next = NULL;
-	return (x);
-}
-
-int	find_min(t_push_swap *lst)
-{
-	t_stack	*current;
-	int min;
-	long long int temp;
-
-	if (!lst->a)
-		return (EXIT_FAILURE);
-	current = lst->a;
-	temp = current->value;
-	while (current)
-	{
-		if (current->value < temp)
-			temp = current->value;
-		current = current->next;
-	}
-	return (temp);
-}
-
-void	ft_freemen(t_push_swap *lst)
-{
-	t_stack	*tmp;
-
-	while (lst->a)
-	{
-		tmp = lst->a;
-		lst->a = lst->a->next;
-		free(tmp);
-	}
-	while (lst->b)
-	{
-		tmp = lst->b;
-		lst->b = lst->b->next;
-		free(tmp);
-	}
-	free(lst);
+	return (res * sign);
 }
