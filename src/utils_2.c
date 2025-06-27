@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 20:06:15 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/25 20:52:46 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:13:57 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,13 @@ int	ft_min(int a, int b)
 	return (b);
 }
 
-void	ft_free_split(char **split)
+int	ft_free_split(char **str)
 {
-    int	i;
+	int	i;
 
-    i = 0;
-    if (!split)
-        return ;
-    while (split[i])
-    {
-        free(split[i]);
-        i++;
-    }
-    free(split);
+	i = -1;
+	while (str[++i])
+		free(str[i]);
+	free(str);
+	return (EXIT_FAILURE);
 }

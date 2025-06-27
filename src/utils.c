@@ -6,36 +6,33 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:24:55 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/25 21:32:16 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:15:50 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atol(char *num)
+long	ft_atol(char *s)
 {
-	long long int	res;
-	long			sign;
-	int				cont;
+	long long int	n;
+	int				sign;
+	int				i;
 
-	res = 0;
-	cont = 0;
+	n = 0;
 	sign = 1;
-	while (num[cont] == 32 || (num[cont] >= 9 && num[cont] <= 13))
-		cont++;
-	if (num[cont] == '+' && num[cont +1] != '-')
-		cont++;
-	if (num[cont] == '-')
+	i = 0;
+	if (s[i] == '-' || s[i] == '+')
 	{
-		sign = sign * -1;
-		cont++;
+		if (s[i] == '-')
+			sign = -1;
+		i++;
 	}
-	while (ft_isdigit(num[cont]))
+	while (s[i] >= '0' && s[i] <= '9')
 	{
-		res = (res * 10) + (num[cont] - 48);
-		cont++;
+		n = n * 10 + (s[i] - '0');
+		i++;
 	}
-	return (res * sign);
+	return (n * sign);
 }
 
 int	ft_stack_size(t_stack *stack)
@@ -53,16 +50,16 @@ int	ft_stack_size(t_stack *stack)
 	return (size);
 }
 
-t_stack	*stack_new(long long int content)
+t_stack	*lst_new(long long int content)
 {
-	t_stack	*n;
+	t_stack	*x;
 
-	n = (t_stack *) malloc (sizeof(t_stack));
-	if (!n)
+	x = (t_stack *) malloc (sizeof(t_stack));
+	if (!x)
 		return (NULL);
-	n->value = content;
-	n->next = NULL;
-	return (n);
+	x->value = content;
+	x->next = NULL;
+	return (x);
 }
 
 int	find_min(t_push_swap *lst)

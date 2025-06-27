@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:27:20 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/25 21:21:12 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:22:11 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,17 @@ int	main(int argc, char **argv)
 	if (argc >= 2)
 	{
 		lst = ft_calloc(1, sizeof(t_push_swap));
-		if (!lst)
-		    return (ft_error(""));
-		lst->a = NULL;		lst->b = NULL;
-		lst->size_a = 0;
-		lst->size_b = 0;
 		if (control(argc, argv, lst) == EXIT_FAILURE)
-		{
-		    ft_freemen(lst);
-		    return (ft_error(""));
-		}
-		if (lst->a && ft_is_sorted(lst->a) == EXIT_FAILURE)
-		    push_swap_algorithm(lst);
+			return (ft_freemen(lst), ft_error(""));
+		push_swap_algorithm(lst);
 		ft_freemen(lst);
-    }
-    else if (argc != 1)
-        return (ft_error(""));
-        
-    return (EXIT_SUCCESS);
+	}
+	else
+	{
+		if (argc == 1)
+			return (EXIT_SUCCESS);
+		else
+			return (ft_error(""));
+	}
+	return (EXIT_SUCCESS);
 }

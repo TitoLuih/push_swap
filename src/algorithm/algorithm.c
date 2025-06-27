@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 01:12:00 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/25 22:42:39 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/26 23:48:59 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,23 @@ static void	final_rotation(t_push_swap *lst)
 void	cost_algorithm(t_push_swap *lst)
 {
     int	*costs;
-    int	cheapest_idx;
     int	*cost_a;
     int	*cost_b;
 
-    costs = (int *)malloc(sizeof(int) * lst->size_b * 2);
-    if (!costs)
-        return ;
+    if (!lst || lst->size_b == 0)
+        return;
+        
     while (lst->size_b > 0)
     {
+        costs = (int *)malloc(sizeof(int) * lst->size_b * 2);
+        if (!costs)
+            return;
         cost_a = costs;
         cost_b = costs + lst->size_b;
         calc_cost(lst, cost_a, cost_b);
-        cheapest_idx = find_cheapest_move(cost_a, cost_b, lst->size_b);
         execute_cheapest_move(lst, cost_a, cost_b);
+        
+        free(costs);
     }
-    free(costs);
     final_rotation(lst);
 }

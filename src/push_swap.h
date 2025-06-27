@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:29:15 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/25 22:35:23 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/27 09:16:12 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_push_swap
 	int top_b;
 }	t_push_swap;
 
-int		ft_check_valid(int argc, char **argv, t_push_swap *list);
 long	ft_atol(char *num);
 int		ft_stack_size(t_stack *stack);
 int		ft_is_sorted(t_stack *list);
@@ -69,7 +68,10 @@ int		ft_max(int a, int b);
 int		ft_abs(int n);
 void	push_swap_algorithm(t_push_swap *lst);
 int	control(int argc, char **argv, t_push_swap *lst);
-void	ft_free_split(char **split);
+int	ft_free_split(char **split);
 int	ft_count_words(char const *str, char sep);
 void	cost_algorithm(t_push_swap *lst);
+int	ft_check_util(char **str, int i);
+t_stack	*lst_new(long long int content);
+
 #endif

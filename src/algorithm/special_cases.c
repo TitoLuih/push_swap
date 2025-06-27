@@ -6,7 +6,7 @@
 /*   By: lruiz-to <lruiz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:48:05 by lruiz-to          #+#    #+#             */
-/*   Updated: 2025/06/25 22:28:54 by lruiz-to         ###   ########.fr       */
+/*   Updated: 2025/06/26 00:28:43 by lruiz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	sort_three(t_push_swap *lst)
     else if (first < second && second > third && first > third)
         rra(lst);
 }
+
 void	sort_two(t_push_swap *lst)
 {
 	if (lst->a->value > lst->a->next->value)
